@@ -1,0 +1,4 @@
+export PATH="$/home/XXXXX/.rbenv/bin:/usr/local/bin/:$PATH"
+eval "$(/home/XXXXX/.rbenv/bin/rbenv init -)"
+cd /home/XXXXX/rfid_logger
+/home/XXXXX/.rbenv/shims/rails server -e production
