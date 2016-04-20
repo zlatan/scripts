@@ -15,7 +15,7 @@ do
 done < participants.csv
 pdftk *.pdf cat output ALL.pdf
 rm name.png category.png school.png location.png
-for podnoga in `ls -1 [0-9]*`
+for podnoga in `ls -1 [0-9]*.pdf`
  do
    rm $podnoga
 done
