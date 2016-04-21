@@ -4,11 +4,11 @@ cnt=1
 while IFS=, read col1 col2 col3 col4
 do
    rm name.png category.png school.png location.png
-   convert -channel RGB -transparent white -font URW-Gothic-L-Book -density 300 -pointsize 34 -negate label:$col1 name.png
-   convert -channel RGB -transparent white -font URW-Gothic-L-Book -density 300 -pointsize 34 -negate label:$col2 category.png
-   convert -channel RGB -transparent white -font URW-Gothic-L-Book -density 300 -pointsize 34 -negate label:$col3 school.png
-   convert -channel RGB -transparent white -font URW-Gothic-L-Book -density 300 -pointsize 34 -negate label:$col4 location.png
-   convert org.jpg -page +800+1920 name.png -page +920+2090 category.png -page +850+2290 school.png -page +1200+2420 location.png -flatten $cnt.png
+   echo -n $col1 | convert -channel RGB -transparent white -font Segoe-Print -density 300 -pointsize 34 -negate label:@- name.png 
+   echo -n $col3 | convert -channel RGB -transparent white -font Segoe-Print -density 300 -pointsize 34 -negate label:@- category.png
+   echo -n $col2 | convert -channel RGB -transparent white -font Segoe-Print -density 300 -pointsize 30 -negate label:@- school.png
+   echo -n $col4 | convert -channel RGB -transparent white -font Segoe-Print -density 300 -pointsize 30 -negate label:@- location.png
+   convert org.jpg -page +1192+2740 name.png -page +1410+2990 category.png -page +1230+3250 school.png -page +1820+3500 location.png -flatten $cnt.png
    convert $cnt.png $cnt.pdf
    rm $cnt.png
    ((cnt++))
